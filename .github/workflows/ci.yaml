@@ -1,0 +1,12 @@
+name: demo CI
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show message
+        run: echo "CI is ready"
+      - name: Show versions
+        run: python3 --version
+      - name: List files
+        run: ls -ltr 
