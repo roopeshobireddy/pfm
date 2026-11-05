@@ -1,0 +1,21 @@
+{
+ "info":{"name":"Personal Finance Manager","schema":"https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},
+ "variable":[{"key":"baseUrl","value":"http://localhost:8080"},{"key":"userId","value":"1"},{"key":"expenseId","value":"1"}],
+ "item":[
+  {"name":"Users","item":[
+   {"name":"Create User","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"url":"{{baseUrl}}/api/users","body":{"mode":"raw","raw":"{\n  \"firstName\":\"John\",\n  \"lastName\":\"Doe\",\n  \"email\":\"john@example.com\",\n  \"phoneNumber\":\"9876543210\",\n  \"monthlyBudget\":50000\n}","options":{"raw":{"language":"json"}}}}},
+   {"name":"Get User","request":{"method":"GET","url":"{{baseUrl}}/api/users/{{userId}}"}},
+   {"name":"List Users","request":{"method":"GET","url":"{{baseUrl}}/api/users?page=0&size=20&sort=id,desc"}},
+   {"name":"Update User","request":{"method":"PUT","url":"{{baseUrl}}/api/users/{{userId}}","body":{"mode":"raw","raw":"{\n  \"firstName\":\"John\",\n  \"lastName\":\"Doe\",\n  \"email\":\"john@example.com\",\n  \"phoneNumber\":\"9876543210\",\n  \"monthlyBudget\":55000\n}","options":{"raw":{"language":"json"}}}}},
+   {"name":"Delete User","request":{"method":"DELETE","url":"{{baseUrl}}/api/users/{{userId}}"}}
+  ]},
+  {"name":"Expenses","item":[
+   {"name":"Create Expense","request":{"method":"POST","url":"{{baseUrl}}/api/expenses","body":{"mode":"raw","raw":"{\n  \"userId\":1,\n  \"title\":\"Dinner\",\n  \"description\":\"Restaurant expense\",\n  \"category\":\"FOOD\",\n  \"amount\":1200,\n  \"expenseDate\":\"2025-01-15\"\n}","options":{"raw":{"language":"json"}}}}},
+   {"name":"List Expenses","request":{"method":"GET","url":"{{baseUrl}}/api/expenses?page=0&size=20&sort=expenseDate,desc"}},
+   {"name":"Get Expense","request":{"method":"GET","url":"{{baseUrl}}/api/expenses/{{expenseId}}"}},
+   {"name":"Expenses By User","request":{"method":"GET","url":"{{baseUrl}}/api/expenses/user/{{userId}}"}},
+   {"name":"Update Expense","request":{"method":"PUT","url":"{{baseUrl}}/api/expenses/{{expenseId}}","body":{"mode":"raw","raw":"{\n  \"userId\":1,\n  \"title\":\"Dinner updated\",\n  \"description\":\"Updated restaurant expense\",\n  \"category\":\"FOOD\",\n  \"amount\":1350,\n  \"expenseDate\":\"2025-01-15\"\n}","options":{"raw":{"language":"json"}}}}},
+   {"name":"Delete Expense","request":{"method":"DELETE","url":"{{baseUrl}}/api/expenses/{{expenseId}}"}}
+  ]}
+ ]
+}
